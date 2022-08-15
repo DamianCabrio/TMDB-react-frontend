@@ -53,11 +53,11 @@ const Login = () => {
   };
 
   return (
-    <div className='w-50 m-auto'>
+    <div className="w-50 m-auto">
       <h2>Login Form</h2>
       <form onSubmit={submitHandler}>
         <div className="mb-3">
-          <label for="emailInput" className="form-label">
+          <label htmlFor="emailInput" className="form-label">
             Email
           </label>
           <input
@@ -65,16 +65,18 @@ const Login = () => {
             className="form-control"
             id="emailInput"
             aria-describedby="emailHelp"
+            name="email"
           />
         </div>
         <div className="mb-3">
-          <label for="passwordInput" className="form-label">
+          <label htmlFor="passwordInput" className="form-label">
             Password
           </label>
           <input
             type="password"
             className="form-control"
             id="passwordInput"
+            name="password"
           />
         </div>
         <button type="submit" className="btn btn-success">
