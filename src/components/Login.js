@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const submitHandler = async (e) => {
@@ -10,11 +11,17 @@ const Login = () => {
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!email.trim() && !password.trim()) {
-      console.log('Email and password are required');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please fill in all fields',
+      });
     } else if (!emailRegex.test(email)) {
-      console.log('Email is invalid');
-    } else if (email !== 'challenge@alkemy.org' || password !== 'react') {
-      console.log('Email or password are incorrect');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter a valid email',
+      });
     } else {
       try {
         const response = await axios.post(
@@ -24,9 +31,18 @@ const Login = () => {
             password,
           }
         );
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'You are logged in',
+        });
         console.log(response.data);
       } catch (error) {
-        console.log(error.response.data);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.response.data.error,
+      });
       }
     }
   };
