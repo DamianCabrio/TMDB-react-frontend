@@ -36,7 +36,8 @@ const Login = () => {
           title: 'Success',
           text: 'You are logged in',
         });
-        console.log(response.data);
+        const token = response.data.token;
+        localStorage.setItem('token', token);
       } catch (error) {
       Swal.fire({
         icon: 'error',
