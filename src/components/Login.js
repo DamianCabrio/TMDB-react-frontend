@@ -53,22 +53,35 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className='w-50 m-auto'>
       <h2>Login Form</h2>
       <form onSubmit={submitHandler}>
-        <label>
-          <span>Email:</span> <br />
-          <input type="email" placeholder="Email" name="email" />
-        </label>
-        <br />
-        <label>
-          <span>Password:</span> <br />
-          <input type="password" placeholder="Password" name="password" />
-        </label>
-        <br />
-        <button type="submit">Login</button>
+        <div className="mb-3">
+          <label for="emailInput" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="emailInput"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <div className="mb-3">
+          <label for="passwordInput" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="passwordInput"
+          />
+        </div>
+        <button type="submit" className="btn btn-success">
+          Log in
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 

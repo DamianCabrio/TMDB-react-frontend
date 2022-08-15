@@ -9,12 +9,14 @@ import './css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className='container'>
+    <div className="d-flex flex-column min-vh-100">
       <Header />
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/list" element={<List />} />
-      </Routes>
+      <div className="container mt-3">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/list" element={<List />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );

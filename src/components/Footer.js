@@ -1,26 +1,23 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
   return (
-    <footer>
-      <nav>
-        <ul>
-          <li>
-            <a href="https://www.facebook.com/" rel="noopener noreferrer">
-              Facebook
-            </a>
+    <footer className="pt-3 mt-auto mb-2">
+      <div className="container">
+        <ul className="nav justify-content-center border-bottom pb-3 mb-3">
+          <li className="nav-item">
+            <Link className="nav-link px-2 text-muted" to="/">
+              Home
+            </Link>
           </li>
-          <li>
-            <a href="https://www.twitter.com/" rel="noopener noreferrer">
-              Twitter
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/" rel="noopener noreferrer">
-              Instagram
-            </a>
+          <li className="nav-item">
+            <Link className="nav-link px-2 text-muted" to="/list">
+              Movie List
+            </Link>
           </li>
         </ul>
-      </nav>
-      <p>Copyright: Damián Cabrio</p>
+        <p className="text-center text-muted">© 2022 Damián Cabrio</p>
+      </div>
     </footer>
   );
 };
