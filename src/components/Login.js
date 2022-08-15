@@ -1,5 +1,7 @@
+import axios from 'axios';
+
 const Login = () => {
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
     const email = e.target.elements.email.value;
     const password = e.target.elements.password.value;
@@ -14,7 +16,18 @@ const Login = () => {
     } else if (email !== 'challenge@alkemy.org' || password !== 'react') {
       console.log('Email or password are incorrect');
     } else {
-      console.log('Login successful');
+      try {
+        const response = await axios.post(
+          'http://challenge-react.alkemy.org/',
+          {
+            email,
+            password,
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.log(error.response.data);
+      }
     }
   };
 
