@@ -1,7 +1,10 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const email = e.target.elements.email.value;
@@ -31,19 +34,20 @@ const Login = () => {
             password,
           }
         );
+        const token = response.data.token;
+        localStorage.setItem('token', token);
         Swal.fire({
           icon: 'success',
           title: 'Success',
           text: 'You are logged in',
         });
-        const token = response.data.token;
-        localStorage.setItem('token', token);
+        navigate('/list');
       } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: error.response.data.error,
-      });
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.response.data.error,
+        });
       }
     }
   };

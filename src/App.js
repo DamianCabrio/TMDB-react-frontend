@@ -1,8 +1,16 @@
-import Login from "./components/Login";
+import { Routes, Route } from 'react-router-dom';
+
+import Login from './components/Login';
+import List from './components/List';
 
 function App() {
   return (
-    <Login />
+    <>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/list" element={<List />} />
+      </Routes>
+    </>
   );
 }
 
