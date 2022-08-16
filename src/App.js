@@ -14,7 +14,7 @@ function App() {
       <div className="container mt-3">
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/list" element={<List />} />
+          <Route path="/movie-list" element={<List />} />
         </Routes>
       </div>
       <Footer />

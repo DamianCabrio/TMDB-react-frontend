@@ -43,7 +43,7 @@ const Login = () => {
           title: 'Success',
           text: 'You are logged in',
         });
-        navigate('/list');
+        navigate('/movie-list');
       } catch (error) {
         Swal.fire({
           icon: 'error',
@@ -55,7 +55,7 @@ const Login = () => {
   };
 
   if(token) {
-    return <Navigate to="/list" replace={true} />;
+    return <Navigate to="/movie-list" replace={true} />;
   }
 
   return (

@@ -11,7 +11,7 @@ const Footer = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link px-2 text-muted" to="/list">
+            <Link className="nav-link px-2 text-muted" to="/movie-list">
               Movie List
             </Link>
           </li>
