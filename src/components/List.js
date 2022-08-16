@@ -4,6 +4,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 import { maxWordsTruncate } from '../helpers/helpers';
+import LoadingSpinner from './LoadingSpinner';
 
 const List = () => {
   const [moviesList, setMoviesList] = useState([]);
@@ -32,14 +33,7 @@ const List = () => {
 
   return (
     <>
-      {loading && (
-        <>
-          <div className="d-flex justify-content-center">
-            <div className="spinner-border text-primary" role="status"></div>
-          </div>
-          <span className="d-flex justify-content-center mt-2">Loading...</span>
-        </>
-      )}
+      {loading && <LoadingSpinner />}
       {!loading && moviesList.length === 0 && (
         <div className="d-flex justify-content-center">
           <h3>No movies found</h3>
