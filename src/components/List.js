@@ -6,8 +6,6 @@ import Swal from 'sweetalert2';
 import { maxWordsTruncate } from '../helpers/helpers';
 
 const List = () => {
-  const token = localStorage.getItem('token');
-
   const [moviesList, setMoviesList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,10 +29,6 @@ const List = () => {
     };
     getMovies();
   }, []);
-
-  if (!token) {
-    return <Navigate to="/" replace={true} />;
-  }
 
   return (
     <>
