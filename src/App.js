@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
 import List from './components/List';
 import Detail from './components/Detail';
+import SearchResults from './components/SearchResults';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -32,6 +33,9 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route path="/search/:keyword" element={<ProtectedRoute>
+            <SearchResults />
+          </ProtectedRoute>} />
         </Routes>
       </div>
       <Footer />

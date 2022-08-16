@@ -1,7 +1,6 @@
-import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 
@@ -62,7 +61,9 @@ const Detail = () => {
                   </p>
 
                   <p className="card-text">
-                    <small className="text-muted">Budget: ${movie.budget}</small>
+                    <small className="text-muted">
+                      Budget: ${movie.budget}
+                    </small>
                   </p>
 
                   <p className="card-text">

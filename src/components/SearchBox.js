@@ -1,6 +1,9 @@
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const SearchBox = () => {
+  const navigate = useNavigate();
+  
   const submitHandler = (e) => {
     e.preventDefault();
     const searchKeyword = e.target.elements.search.value.trim();
@@ -17,6 +20,9 @@ const SearchBox = () => {
         title: 'Oops...',
         text: 'Please enter at least 4 characters',
       });
+    } else {
+      e.target.elements.search.value = '';
+      navigate(`/search/${searchKeyword}`);
     }
   };
 
