@@ -1,15 +1,21 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 const SearchBox = () => {
   const submitHandler = (e) => {
     e.preventDefault();
-    const searchKeyword = e.target.elements.search.value;
+    const searchKeyword = e.target.elements.search.value.trim();
 
-    if (searchKeyword.trim().length === 0) {
+    if (searchKeyword.length === 0) {
       Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please enter a search keyword",
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter a search keyword',
+      });
+    } else if (searchKeyword.length < 4) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please enter at least 4 characters',
       });
     }
   };
