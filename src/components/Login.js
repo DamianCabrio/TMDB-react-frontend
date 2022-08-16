@@ -5,7 +5,7 @@ import { useNavigate, Navigate } from 'react-router-dom';
 const Login = () => {
   const navigate = useNavigate();
 
-  const token = localStorage.getItem('token');
+  const token = sessionStorage.getItem('token');
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -36,8 +36,8 @@ const Login = () => {
             password,
           }
         );
-        const token = response.data.token;
-        localStorage.setItem('token', token);
+        const responseToken = response.data.token;
+        sessionStorage.setItem('token', responseToken);
         Swal.fire({
           icon: 'success',
           title: 'Success',
