@@ -1,0 +1,9 @@
+export { default as CrewTable } from './CrewTable';
+export { default as Footer } from './Footer';
+export { default as Header } from './Header';
+export { default as ListMovieCard } from './ListMovieCard';
+export { default as ListMovies } from './ListMovies';
+export { default as LoadingSpinner } from './LoadingSpinner';
+export { default as MovieDetailCard } from './MovieDetailCard';
+export { default as ProtectedRoute } from './ProtectedRoute';
+export { default as SearchBox } from './SearchBox';

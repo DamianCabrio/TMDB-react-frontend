@@ -1,6 +1,6 @@
 import axios from 'axios';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { useNavigate, Navigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Login = () => {
     const password = e.target.elements.password.value;
 
     const emailRegex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      /(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@[*[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+]*/;
 
     if (!email.trim() && !password.trim()) {
       Swal.fire({
@@ -54,7 +54,7 @@ const Login = () => {
     }
   };
 
-  if(token) {
+  if (token) {
     return <Navigate to="/movie-list" replace={true} />;
   }
 

@@ -1,5 +1,5 @@
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const SearchBox = () => {
   const navigate = useNavigate();

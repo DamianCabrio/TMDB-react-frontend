@@ -1,9 +1,9 @@
 import { Navigate } from 'react-router-dom';
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ element }) => {
   const token = sessionStorage.getItem('token');
 
-  return token ? children : <Navigate to="/" />;
+  return token ? element : <Navigate to="/" />;
 };
 
 export default ProtectedRoute;

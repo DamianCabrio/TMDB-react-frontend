@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import SearchBox from './SearchBox';
+import { SearchBox } from './';
 
 const Header = () => {
   return (
