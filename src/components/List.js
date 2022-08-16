@@ -1,15 +1,10 @@
-import { useNavigate, Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Navigate, Link } from 'react-router-dom';
 
 const List = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      navigate('/');
-    }
-  }, [navigate]);
+  const token = localStorage.getItem('token');
+  if (!token) {
+    return <Navigate to="/" replace={true} />;
+  }
 
   return (
     <div className="row row-cols-1 row-cols-md-2 g-4">

@@ -1,9 +1,11 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const token = localStorage.getItem('token');
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -51,6 +53,10 @@ const Login = () => {
       }
     }
   };
+
+  if(token) {
+    return <Navigate to="/list" replace={true} />;
+  }
 
   return (
     <div className="w-50 m-auto">
