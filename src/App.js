@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import Login from './components/Login';
 import List from './components/List';
+import Detail from './components/Detail';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/movie-list" element={<List />} />
+          <Route path="/movie/:id" element={<Detail />} />
         </Routes>
       </div>
       <Footer />
