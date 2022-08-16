@@ -1,7 +1,23 @@
 import { Navigate, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const List = () => {
   const token = localStorage.getItem('token');
+
+  const [moviesList, setMoviesList] = useState([]);
+
+  useEffect(() => {
+    const endPoint = `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&page=1`;
+    
+    const getMovies = async () => {
+      const response = await axios.get(endPoint);
+      setMoviesList(response.data.results);
+    }
+    getMovies();
+  }, []);
+
+
   if (!token) {
     return <Navigate to="/" replace={true} />;
   }
