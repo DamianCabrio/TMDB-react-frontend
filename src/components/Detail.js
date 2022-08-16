@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import LoadingSpinner from './LoadingSpinner';
 
@@ -8,6 +9,8 @@ const Detail = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const endPoint = `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&append_to_response=casts`;
@@ -24,6 +27,7 @@ const Detail = () => {
           title: 'Oops...',
           text: 'An error occurred while fetching the movie. Please try again later',
         });
+        navigate('/movie-list');
       } finally {
         setLoading(false);
       }
@@ -58,12 +62,12 @@ const Detail = () => {
                   </p>
 
                   <p className="card-text">
-                    <small className="text-muted">Budget: {movie.budget}</small>
+                    <small className="text-muted">Budget: ${movie.budget}</small>
                   </p>
 
                   <p className="card-text">
                     <small className="text-muted">
-                      Revenue: {movie.revenue}
+                      Revenue: ${movie.revenue}
                     </small>
                   </p>
 
@@ -89,7 +93,7 @@ const Detail = () => {
               <h2 className="card-title">Cast</h2>
               <div className="row g-0">
                 {movie.casts.cast.map((cast) => (
-                  <div className="col-md-3 h-100" key={cast.id}>
+                  <div className="col-md-3" key={cast.id}>
                     <div className="card my-2">
                       <img
                         src={
