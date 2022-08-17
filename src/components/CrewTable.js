@@ -5,7 +5,6 @@ const CrewTable = ({ crewList, isCast }) => {
   const jobType = isCast ? 'Character' : 'Job';
 
   if (!isCast) {
-    //unify the crew list to have only one entry per name, and join all the jobs together
     crewList = crewList.reduce((acc, curr) => {
       const existingCrew = acc.find(({ name }) => name === curr.name);
       if (existingCrew) {
@@ -19,7 +18,7 @@ const CrewTable = ({ crewList, isCast }) => {
     }, []);
   }
 
-  //order the crew list popularity
+  crewList.sort((a, b) => b.popularity - a.popularity);
 
   return (
     <div className="card mb-3">
