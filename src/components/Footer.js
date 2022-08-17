@@ -15,6 +15,11 @@ const Footer = () => {
               Movie List
             </Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link px-2 text-muted" to="/favorite-movies">
+              Favorite Movies
+            </Link>
+          </li>
         </ul>
         <p className="text-center text-muted">© 2022 Damián Cabrio</p>
       </div>

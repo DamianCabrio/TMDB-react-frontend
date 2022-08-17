@@ -7,3 +7,4 @@ export { default as LoadingSpinner } from './LoadingSpinner';
 export { default as MovieDetailCard } from './MovieDetailCard';
 export { default as ProtectedRoute } from './ProtectedRoute';
 export { default as SearchBox } from './SearchBox';
+export { default as FavoriteBtn } from './FavoriteBtn';

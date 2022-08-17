@@ -23,6 +23,11 @@ const Header = () => {
                     Movie List
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/favorite-movies">
+                    Favorite Movies
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

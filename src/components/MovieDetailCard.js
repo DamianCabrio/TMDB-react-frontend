@@ -1,4 +1,6 @@
 import UnknownFilm from '../assets/images/unknown-film.png';
+import { useAppContext } from '../contexts/appContext';
+import FavoriteBtn from './FavoriteBtn';
 
 const MovieDetailCard = ({ movie }) => {
   const image = movie.poster_path
@@ -17,15 +19,20 @@ const MovieDetailCard = ({ movie }) => {
       ? movie.genres.map((g) => g.name).join(', ')
       : 'Unknown';
 
+      const { addOrRemoveFavorite, isMovieFavorite } = useAppContext();
+
   return (
     <div className="card mb-3">
       <div className="row g-0">
         <div className="col-md-4">
           <img
             src={image}
-            className="img-fluid rounded-start h-100"
-            style={{ objectFit: 'cover' }}
+            className="img-fluid rounded-start h-100 detail-movie-poster"
             alt={title}
+          />
+          <FavoriteBtn
+            isFavorite={isMovieFavorite(movie.id)}
+            onClick={() => addOrRemoveFavorite(movie)}
           />
         </div>
         <div className="col-md-8">

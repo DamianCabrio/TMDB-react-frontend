@@ -2,12 +2,16 @@ import { Link } from 'react-router-dom';
 import { maxWordsTruncate } from '../helpers/helpers';
 
 import UnknownFilm from '../assets/images/unknown-film.png';
+import { useAppContext } from '../contexts/appContext';
+import FavoriteBtn from './FavoriteBtn';
 
 const ListMovieCard = ({ movie }) => {
+  const { addOrRemoveFavorite, isMovieFavorite } = useAppContext();
+
   return (
     <div className="col mb-4" key={movie.id}>
       <div className="card h-100">
-        <div className='card-img'>
+        <div className="card-img">
           <img
             src={
               movie.poster_path
@@ -16,6 +20,10 @@ const ListMovieCard = ({ movie }) => {
             }
             className="card-img-top"
             alt={movie.title}
+          />
+          <FavoriteBtn
+            isFavorite={isMovieFavorite(movie.id)}
+            onClick={() => addOrRemoveFavorite(movie)}
           />
         </div>
         <div className="card-body d-flex flex-column">
