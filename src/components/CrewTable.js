@@ -1,3 +1,5 @@
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 import UnknownCrew from '../assets/images/unknown-crew.png';
 
 const CrewTable = ({ crewList, isCast }) => {
@@ -45,7 +47,7 @@ const CrewTable = ({ crewList, isCast }) => {
                 return (
                   <tr key={id}>
                     <td>
-                      <img
+                      <LazyLoadImage
                         src={image}
                         width="50px"
                         className="img-fluid rounded"

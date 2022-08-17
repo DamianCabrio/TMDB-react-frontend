@@ -1,3 +1,4 @@
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import UnknownFilm from '../assets/images/unknown-film.png';
 import { useAppContext } from '../contexts/appContext';
 import FavoriteBtn from './FavoriteBtn';
@@ -33,7 +34,7 @@ const MovieDetailCard = ({ movie }) => {
     <div className="card mb-3">
       <div className="row g-0">
         <div className="col-md-4">
-          <img
+          <LazyLoadImage
             src={image}
             className="img-fluid rounded-start h-100 detail-movie-poster"
             alt={title}
