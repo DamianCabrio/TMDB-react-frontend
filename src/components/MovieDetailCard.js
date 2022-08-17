@@ -3,6 +3,7 @@ import { useAppContext } from '../contexts/appContext';
 import FavoriteBtn from './FavoriteBtn';
 
 const MovieDetailCard = ({ movie }) => {
+  console.log(movie);
   const image = movie.poster_path
     ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
     : UnknownFilm;
@@ -11,15 +12,22 @@ const MovieDetailCard = ({ movie }) => {
   const releaseDate = movie.release_date
     ? new Date(movie.release_date).toLocaleDateString()
     : 'Unknown';
-  const budget = movie.budget ? `$${movie.budget}` : 'Unknown';
-  const revenue = movie.revenue ? `$${movie.revenue}` : 'Unknown';
+  const currencyFormat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+  });
+  const budget = movie.budget ? currencyFormat.format(movie.budget) : 'Unknown';
+  const revenue = movie.revenue
+    ? currencyFormat.format(movie.revenue)
+    : 'Unknown';
   const runtime = movie.runtime ? `${movie.runtime} minutes` : 'Unknown';
   const generes =
     movie.genres.length > 0
       ? movie.genres.map((g) => g.name).join(', ')
       : 'Unknown';
 
-      const { addOrRemoveFavorite, isMovieFavorite } = useAppContext();
+  const { addOrRemoveFavorite, isMovieFavorite } = useAppContext();
 
   return (
     <div className="card mb-3">
