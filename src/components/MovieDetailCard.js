@@ -1,42 +1,55 @@
+import UnknownFilm from '../assets/images/unknown-film.png';
+
 const MovieDetailCard = ({ movie }) => {
+  const image = movie.poster_path
+    ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+    : UnknownFilm;
+  const title = movie.title ? movie.title : 'Unknown';
+  const overview = movie.overview;
+  const releaseDate = movie.release_date
+    ? new Date(movie.release_date).toLocaleDateString()
+    : 'Unknown';
+  const budget = movie.budget ? `$${movie.budget}` : 'Unknown';
+  const revenue = movie.revenue ? `$${movie.revenue}` : 'Unknown';
+  const runtime = movie.runtime ? `${movie.runtime} minutes` : 'Unknown';
+  const generes =
+    movie.genres.length > 0
+      ? movie.genres.map((g) => g.name).join(', ')
+      : 'Unknown';
+
   return (
     <div className="card mb-3">
       <div className="row g-0">
         <div className="col-md-4">
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+            src={image}
             className="img-fluid rounded-start h-100"
             style={{ objectFit: 'cover' }}
-            alt={movie.title}
+            alt={title}
           />
         </div>
         <div className="col-md-8">
           <div className="card-body">
-            <h2 className="card-title">{movie.title}</h2>
-            <p className="card-text">{movie.overview}</p>
+            <h2 className="card-title">{title}</h2>
+            <p className="card-text">{overview}</p>
             <p className="card-text">
-              <small className="text-muted">
-                Release date:{' '}
-                {new Date(movie.release_date).toLocaleDateString()}
-              </small>
+              <small className="text-muted">Release date: {releaseDate}</small>
             </p>
 
             <p className="card-text">
-              <small className="text-muted">Budget: ${movie.budget}</small>
+              <small className="text-muted">Budget: {budget}</small>
             </p>
 
             <p className="card-text">
-              <small className="text-muted">Revenue: ${movie.revenue}</small>
+              <small className="text-muted">Revenue: {revenue}</small>
             </p>
 
             <p className="card-text">
-              <small className="text-muted">Runtime: {movie.runtime}</small>
+              <small className="text-muted">Runtime: {runtime}</small>
             </p>
 
             <p className="card-text">
-              <small className="text-muted">
-                Genres: {movie.genres.map((genre) => genre.name).join(', ')}
-              </small>
+              <small className="text-muted">Genres: {generes}</small>
             </p>
           </div>
         </div>

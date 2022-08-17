@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { maxWordsTruncate } from '../helpers/helpers';
 
-import UnknownFilm from '../assets/unknown-film.png';
+import UnknownFilm from '../assets/images/unknown-film.png';
 
 const ListMovieCard = ({ movie }) => {
   return (

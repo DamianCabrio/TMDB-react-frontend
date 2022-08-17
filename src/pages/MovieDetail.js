@@ -20,7 +20,6 @@ const MovieDetail = () => {
       try {
         const response = await axios.get(endPoint);
         setMovie(response.data);
-        console.log(response.data);
       } catch (error) {
         Swal.fire({
           icon: 'error',
@@ -41,8 +40,12 @@ const MovieDetail = () => {
       {!loading && movie && (
         <>
           <MovieDetailCard movie={movie} />
-          <CrewTable crewList={movie.casts.cast} isCast={true} />
-          <CrewTable crewList={movie.casts.crew} isCast={false} />
+          {movie.casts.cast.length > 0 && (
+            <CrewTable crewList={movie.casts.cast} isCast={true} />
+          )}
+          {movie.casts.crew.length > 0 && (
+            <CrewTable crewList={movie.casts.crew} isCast={false} />
+          )}
         </>
       )}
 
