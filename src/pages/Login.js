@@ -9,8 +9,8 @@ const Login = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const email = e.target.elements.email.value;
-    const password = e.target.elements.password.value;
+    const email = e.target.elements.email.value; // challenge@alkemy.com;
+    const password = e.target.elements.password.value // react;
 
     const emailRegex =
       /(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@[*[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+]*/;
